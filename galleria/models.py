@@ -40,4 +40,19 @@ class Image(models.Model):
     image_description = models.TextField(max_length=75)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     location= models.ForeignKey(Location,on_delete=models.CASCADE)
+    image = models.ImageField(upload_to= 'pictures')
+    
+    def __str__(self):
+        return self.image_name
+    
+    
+    def save_image(self):
+        self.save
+        
+        
+    def delete_image(self):
+        self.delete_image
+        
+    class Meta:
+        ordering = ['image_name']    
     
