@@ -12,8 +12,8 @@ class Location(models.Model):
     def save_location(self):
         self.save
         
-    def change_location(self):
-        self.change_location
+    def update_location(self):
+        self.update_location
         
     def delete_location(self):
         self.delete_location
@@ -29,8 +29,8 @@ class Category(models.Model):
         self.save
         
     
-    def change_category(self):
-        self.change_category
+    def update_category(self):
+        self.update_category
         
     def delete_category(self):
         self.delete_category
