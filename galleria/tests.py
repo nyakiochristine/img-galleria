@@ -26,6 +26,24 @@ class CategoryTestCase(TestCase):
         
     def test_instance(self):
         self.assertTrue(isinstance(self.category,Category))
+        
+        #test save() method
+    def test_save_category(self):
+        self.category.save_category()
+        categories = Category.objects.all()
+        self.assertFalse(len(categories)>0)
+        
+    def test_update_category(self):
+        self.category.update_category()
+        updated_category= Category.objects.filter(category_name='Travel')
+        self.assertFalse(len(updated_category)>0)
+        
+        
+    def test_delete_category(self):
+        self.category.delete_category()
+        category= Category.objects.all()
+        self.assertTrue(len(category)==0)
+        
 
 
 
