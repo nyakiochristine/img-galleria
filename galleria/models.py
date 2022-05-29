@@ -19,3 +19,25 @@ class Location(models.Model):
         self.delete_location
         
     
+#2 category class   
+class Category(models.Model):
+    category_name = models.CharField(max_length=40)
+    def __str__(self):
+        self.category_name
+        
+    def save_category(self):
+        self.save
+        
+    
+    def change_category(self):
+        self.change_category
+        
+    def delete_category(self):
+        self.delete_category
+        
+class Image(models.Model):
+    image_name = models.CharField(max_length=25)
+    image_description = models.TextField(max_length=75)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
+    location= models.ForeignKey(Location,on_delete=models.CASCADE)
+    
