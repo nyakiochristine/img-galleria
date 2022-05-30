@@ -15,6 +15,10 @@ class Location(models.Model):
     def update_location(self):
         self.update_location
         
+    @classmethod
+    def update_location(cls, id,value):
+            cls.objects.filter(id=id,value=value).update(location_name=value)
+        
     def delete_location(self):
         self.delete_location
         
@@ -31,6 +35,12 @@ class Category(models.Model):
     
     def update_category(self):
         self.update_category
+        
+        
+    @classmethod
+    def update_category(cls,id,value):
+        cls.objects.filter(id=id,value=value).update(category_name=value)
+        
         
     def delete_category(self):
         self.delete_category
@@ -54,5 +64,29 @@ class Image(models.Model):
         self.delete_image
         
     class Meta:
-        ordering = ['image_name']    
+        ordering = ['image_name']   
+        
+    @classmethod
+    def get_all_images(cls):
+        images =cls.objects.all()
+        return images
+    
+    @classmethod
+    def update_image(cls,id,value):
+        cls.objects.filter(id=id,value=value).update(image=value)
+        
+        
+    @classmethod
+    def get_image_by_id(cls,search_term):
+        image = cls.objects.filter(image_id=search_term)
+        return image
+    
+    @classmethod
+    def filter_by_location(cls,search_term):
+        locations = cls.objects.filter(location__location_name__icontains=search_term)
+        return locations
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        pictures = cls.objects.filter(category__)
     
