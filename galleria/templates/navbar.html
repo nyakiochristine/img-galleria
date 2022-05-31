@@ -2,4 +2,39 @@
     <a class="navbar-brand" href="">Kris Gallery</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarsupports" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span></button>
+
+    <div class="navbar-collapse" data-target="#navbarsupports" aria-expanded="false" id="navbarsupports">
+        <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class =nav-link href="{% url 'galleria'%}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" dropdown-toggle="dropdown loc "  id="nav-dropdown" role="button" aria-haspopup="true" aria-haspopup="true" href="#" aria-expanded="false">
+                    Locations
+                    <div class = "dropdown-menu dropdown-default">
+                        {%for location in locations%}
+                        <ul class = "dropdown-item">
+                            <li  href= "{% url 'location' location_name=location.location_name %}">{{location.location_name}}
+                        </ul>
+                        {% endfor %}
+                    </div>
+            </li>
+        </ul>
+
+        <!--searching form here-->
+        <div class="col-md-4 navbar-right">
+            <form class="form-inline" role="search" action="{% url 'search_results' %}" method="">
+                <div class="input-group f2">
+
+                    <input class="form-control sm-2" type="search" placeholder="Search..." aria-label="Search" name="image">
+                    <div class="input-group-btn">
+                        <button class="btn btn-outline  btn-sm" type="submit" id="btn1">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
 </nav>
