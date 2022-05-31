@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container">
+    <p class="int text-center">Welcome Kris gallery.The categories are:</p>
+    <p class="art text-center">(Business,Music,Education)</p>
+
+    <div class="row">
+        {% for image in images %}
+        <div class="col-md-3">
+            <div class="card box1">
+                <img class="card-img-top" src="{{ image.image.url }}" alt="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-header">
+                            <h2 class="modal-title text-center">{{ image.image_name }}</h2>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body text-center">
+                            <img class ="card-img-top" src="{{image.image.url}}" alt="",height="100px" width="100px">
+                            <p class=" card-text text-center">Image Description:{{image.image_decsription}}</p>
+                            <p class=" card-text text-center"> Taken in:{{image.location}}</p>
+                            <p class=" card-text text-center">Category:{{image.category}}</p>
+                            <div class ="col-md-10"
+                                <input id ="{{image.id}}-url" type="text" value="{{image.image.url}}" >
+                            </div>
+                            <div class ="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<hr>
+{% endblock %}

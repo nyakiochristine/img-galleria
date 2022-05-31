@@ -1,0 +1,8 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container text-center">
+    {%if images%}
+    <h3>{{image | length}} of search {{message}}</h3>
+    {%else%}
+    <h4>0 Images found</h4>
+</div>
