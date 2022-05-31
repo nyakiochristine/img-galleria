@@ -17,6 +17,9 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -24,21 +27,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$ymy-_y2h@2^1nw^j32523iu4r(02lkc%ozp+1dz^qu0l%$ykb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 
 INSTALLED_APPS = [
+    'bootstrap3',
+    'galleria',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'galleria',
-    'bootstrap3',
+    
 ]
 
 MIDDLEWARE = [
@@ -51,6 +55,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+WHITENOISE_USE_FINDERS = True
+from django.test.utils import ignore_warnings
+ignore_warnings(message="No directory at", module="whitenoise.base").enable()
 
 ROOT_URLCONF = 'galllery.urls'
 
@@ -116,6 +124,8 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 
 
 # Static files (CSS, JavaScript, Images)
@@ -123,10 +133,13 @@ USE_TZ = True
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = 'static/'
+#STATICFILES_DIRS = [
+    #os.path.join(BASE_DIR, "static")]
+    
 
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
