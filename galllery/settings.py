@@ -34,8 +34,8 @@ ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
-    'bootstrap3',
-    'galleria',
+    'bootstrap',
+    'galleria.apps.GalleriaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,7 +124,7 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
-MEDIA_URL = '/media/'
+MEDIA_URL = '/pictures/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 
 
@@ -140,6 +140,8 @@ STATIC_URL = 'static/'
 
 
 
+#  Add configuration for static files storage using whitenoise
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
