@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary,cloudinary.api,cloudinary.uploader
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,15 +27,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$ymy-_y2h@2^1nw^j32523iu4r(02lkc%ozp+1dz^qu0l%$ykb'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+cloudinary.config( 
+    cloud_name = "dg5gebequ", 
+    api_key = "388514951533463", 
+    api_secret = "PQ-s6behlA021Cf7hpYZpjcyFxQ" 
+)
 
-ALLOWED_HOSTS = ['*']
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 
 INSTALLED_APPS = [
-    'bootstrap',
+    'bootstrap3',
+    'cloudinary',
     'galleria.apps.GalleriaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,9 +64,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-WHITENOISE_USE_FINDERS = True
-from django.test.utils import ignore_warnings
-ignore_warnings(message="No directory at", module="whitenoise.base").enable()
+#WHITENOISE_USE_FINDERS = True
+#from django.test.utils import ignore_warnings
+#ignore_warnings(message="No directory at", module="whitenoise.base").enable()
 
 ROOT_URLCONF = 'galllery.urls'
 
@@ -87,7 +95,7 @@ WSGI_APPLICATION = 'galllery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gallery',
         'USER':'moringa',
         'PASSWORD':'12345',
@@ -119,22 +127,21 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Nairobi'
+TIME_ZONE ='UTC'
 
 USE_I18N = True
 
 USE_TZ = True
-MEDIA_URL = '/pictures/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = 'static/'
-#STATICFILES_DIRS = [
-    #os.path.join(BASE_DIR, "static")]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     
 
 

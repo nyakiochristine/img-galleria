@@ -1,0 +1,27 @@
+
+
+
+.home,
+.location {
+    font-size: 15px;
+}
+.image-box img {
+    max-width: 100%;
+    transition: all 0.3s;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+    filter: grayscale(100%);
+}
+.card1 {
+    box-shadow: 5px 5px 5px #424949;
+}
+
+.foot {
+    font-size: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+}
