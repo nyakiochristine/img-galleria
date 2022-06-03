@@ -11,7 +11,7 @@
     <title>Welcome | Gallery - {{title}}</title>
     {% else %}
     <title> Welcome | Gallery </title>
-    {% endif %} {% block styles %} {% bootstrap_css %}
+    {% endif %}  {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
     <!-- bootstrap css -->
@@ -27,17 +27,18 @@
 
 </head>
 <body class="intro">
-    {%include "navbar.html"%}
+    {% include 'navbar.html' %}
     <div class="container">
-        {% block content %}{% endblock %} {% block scripts %}
+        {% block content %} {% block scripts %}
         <script type="text/javascript" src="{{ STATIC_URL }} /static/js/jquery-3.4.1.js">
         </script>
         <script type="text/javascript" src="{{ STATIC_URL }} /static/js/scripts.js">
         </script>
+        {% endblock %}
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-        {% bootstrap_javascript %} {% endblock %}
+        {% bootstrap_javascript %} 
     </div>
     <script>
         function copy(element) {
@@ -54,3 +55,4 @@
         
 </body>
 </html>
+{% endblock %}

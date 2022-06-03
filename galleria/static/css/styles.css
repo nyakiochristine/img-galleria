@@ -1,9 +1,41 @@
 
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+.int{
+    font-size: 30px;
+    color: #2c525e;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
 .home,
 .location {
     font-size: 15px;
+}
+
+.image-box {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 540px;
+}
+.image-box:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.back {
+    background-color: #92d0e4;
 }
 .image-box img {
     max-width: 100%;
@@ -18,6 +50,32 @@
     box-shadow: 5px 5px 5px #424949;
 }
 
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+    position: fixed;
+    }
+
+.cate,
+.pic,
+.shot {
+    font-size: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 70px;
+    color: black;
+    font-weight: 600;
+    }
+
+
 .foot {
     font-size: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -25,3 +83,25 @@
     font-weight: bold;
     font-style: italic;
 }
+
+.card-text{
+    color: black;
+    font-size: 22px;
+}
+
+
+.btn1 {
+    margin-right: 10px;
+    padding-right: 10px;
+}
+.dropdown-item{
+    color: black;
+    font-size: large;
+}
+#btn2{
+    padding-left: 10px;
+    size: 12px;
+
+}
+
+

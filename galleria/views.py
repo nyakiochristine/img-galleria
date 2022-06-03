@@ -4,9 +4,9 @@ from .models import Location,Category,Image
 
 # Create your views here.
 def pictures(request):
-    images = Image.get_all_images
-    location = Location.objects.all()
-    context={'images':images,'locations':location}
+    images = Image.get_all_images()
+    locations = Location.objects.all()
+    context={'images':images,'locations':locations}
     return render(request,'images.html',context)
 
 

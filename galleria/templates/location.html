@@ -10,8 +10,8 @@
         {% for image  in location_images %}
         <div class="col-md-3 image-box">
             <div class="card card1" style:"width:auto;">
-                <img src="{{ image.image.url}}" class="card-img-top" id="{{image.id}}" alt ="Card Image Cap" data-target="#mmodal{{for loop.counter}}" aria-hidden="true">
-                <div class=" modal fade animated" id="mmmodal{{for loop.counter}}" style="opacity:0.9"> 
+                <img src="{{ image.image.url}}" class="card-img-top" id="{{image.id}}" alt ="Card Image Cap" data-target="#modal{{for loop.counter}}" aria-hidden="true">
+                <div class=" modal fade animated" id="modal{{for loop.counter}}" style="opacity:0.9"> 
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

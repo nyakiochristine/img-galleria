@@ -1,20 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
-    <a class="navbar-brand" href="">Kris Gallery</a>
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" fixed-top >
+    <a class="navbar-brand" href="{% url 'pictures'%}">Kris Gallery</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarsupports" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span></button>
 
     <div class="navbar-collapse" data-target="#navbarsupports" aria-expanded="false" id="navbarsupports">
         <ul class="nav navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class =nav-link href="">Home <span class="sr-only">(current)</span></a>
+                <a class =nav-link href="{% url 'pictures'%}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" dropdown-toggle="dropdown loc "  id="nav-dropdown" role="button" aria-haspopup="true" aria-haspopup="true" href="#" aria-expanded="false">
+                <a class="nav-link" href="#" toggle="dropdown loc "  id="nav-dropdown" role="button" aria-haspopup="true" aria-haspopup="true" aria-expanded="false">
                     Locations
                     <div class = "dropdown-menu dropdown-default">
-                        {%for location in locations%}
+                        {% for location in locations %}
                         <ul class = "dropdown-item">
-                            <li  href=  "#">{{location.location_name}}
+                            <li  href=  "{% url 'location' location_name=location.location_name %}">{{ location.location_name }}
                         </ul>
                         {% endfor %}
                     </div>
@@ -22,13 +23,13 @@
         </ul>
 
         <!--searching form here-->
-        <div class="col-md-4 navbar-right">
-            <form class="form-inline" role="search" action="" method="{% url 'search_results' %}">
+        <div class="col-md-8 navbar-right ">
+            <form class="form-inline my-2 lg-0" role="search" action="{% url 'search_results' %}">
                 <div class="input-group f2">
 
-                    <input class="form-control sm-2" type="search" placeholder="Search..." aria-label="Search" name="image">
-                    <div class="input-group-btn">
-                        <button class="btn btn-outline  btn-sm" type="submit" id="btn1">Search</button>
+                    <input class="form-control " type="search" placeholder="Search by Category..." aria-label="Search" name="image">
+                    <div class="input-group-btn bg-dark ">
+                        <button class=" btn2 btn-outline btn-default style="background-color: #005792;" type="submit" id="btn1">Search</button>
                     </div>
                 </div>
             </form>

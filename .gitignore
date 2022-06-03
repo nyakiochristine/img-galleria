@@ -4,5 +4,5 @@ virtual/
 env/
 var/
 wheels/
-vscode/
+.vscode/
 
