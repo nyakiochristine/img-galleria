@@ -121,12 +121,20 @@ if config('MODE') == 'dev':
     }
 #production
 # production
-#else:
-DATABASES = {
+else:
+    DATABASES = {
         'default': dj_database_url.config(
         default=config('DATABASE_URL')
         )
     }
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+try:
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+except:
+    pass
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
