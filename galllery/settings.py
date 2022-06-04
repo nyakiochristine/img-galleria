@@ -12,10 +12,15 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config,Csv
 import cloudinary,cloudinary.api,cloudinary.uploader
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -93,15 +98,35 @@ WSGI_APPLICATION = 'galllery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gallery',
-        'USER':'moringa',
-        'PASSWORD':'12345',
-    }
-}
 
+
+
+MODE = config('MODE', default='dev')
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+# Database
+# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+#development
+if config('MODE') == 'dev':
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'PORT': '',
+            'HOST': config('DB_HOST'),
+        }
+    }
+#production
+# production
+#else:
+DATABASES = {
+        'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+        )
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,14 +166,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
     
 
 
 
 
 #  Add configuration for static files storage using whitenoise
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
