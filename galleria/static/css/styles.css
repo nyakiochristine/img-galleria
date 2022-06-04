@@ -8,10 +8,20 @@
 }
 
 .int{
-    font-size: 30px;
+    font-size: 35px;
     color: #2c525e;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+.art{
+    font-size: 25px;
+}
+.nav-link{
+    font-family: 'Signika Negative', sans-serif;
+    font-family: 'Tiro Gurmukhi', serif;
+    font-size: 25px;
+}
+
 
 .home,
 .location {
@@ -104,4 +114,8 @@
 
 }
 
+.navbar-brand {
+    font-family:'Overpass', sans-serif;
+    font-family: 'Orelega One', cursive;
 
+}
