@@ -1,16 +1,20 @@
 {% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akshar&family=Kalam&family=Orelega+One&family=Overpass:wght@300&family=Poppins:wght@100;200;500&family=Rubik+Moonrocks&family=Signika+Negative:wght@300&family=Tiro+Gurmukhi:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" fixed-top >
-    <a class="navbar-brand" href="{% url 'pictures'%}">Kris Gallery</a>
+    <a class="navbar-brand " style="font-size:35px"  href="{% url 'pictures'%}">Kris Gallery</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarsupports" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span></button>
 
     <div class="navbar-collapse" data-target="#navbarsupports" aria-expanded="false" id="navbarsupports">
         <ul class="nav navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class =nav-link href="{% url 'pictures'%}">Home <span class="sr-only">(current)</span></a>
+                <a class ="nav-link" style:"font-size:22px" href="{% url 'pictures'%}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" toggle="dropdown loc "  id="nav-dropdown" role="button" aria-haspopup="true" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" toggle="dropdown loc "  id="nav-dropdown" role="button" aria-haspopup="true" aria-haspopup="true" >
                     Locations
                     <div class = "dropdown-menu dropdown-default">
                         {% for location in locations %}
@@ -23,13 +27,13 @@
         </ul>
 
         <!--searching form here-->
-        <div class="col-md-8 navbar-right ">
+        <div class="col-md-11 navbar-right ">
             <form class="form-inline my-2 lg-0" role="search" action="{% url 'search_results' %}">
                 <div class="input-group f2">
 
                     <input class="form-control " type="search" placeholder="Search by Category..." aria-label="Search" name="image">
                     <div class="input-group-btn bg-dark ">
-                        <button class=" btn2 btn-outline btn-default style="background-color: #005792;" type="submit" id="btn1">Search</button>
+                        <button class=" btn2  btn-default" style:"background-color: #005792;" type="submit" id="btn1">Search</button>
                     </div>
                 </div>
             </form>
