@@ -16,7 +16,6 @@ from decouple import config,Csv
 import cloudinary,cloudinary.api,cloudinary.uploader
 import django_heroku
 import dj_database_url
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -101,39 +100,39 @@ WSGI_APPLICATION = 'galllery.wsgi.application'
 
 
 
-MODE = config('MODE', default='dev')
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+MODE = production
+SECRET_KEY ='django-insecure-$ymy-_y2h@2^1nw^j32523iu4r(02lkc%ozp+1dz^qu0l%$ykb)'
 
+DEBUG = False
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 #development
-if config('MODE') == 'dev':
-    DATABASES = {
+DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASSWORD'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'gallery',
+            'USER':'moringa',
+            'PASSWORD':'1256',
+            'HOST': '127.0.0.1',
             'PORT': '',
-            'HOST': config('DB_HOST'),
         }
     }
+
+
+
+# Password validation
+# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+
 #production
 # production
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-        )
-    }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
-try:
-    ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-except:
-    pass
+
+
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+
+
 
 
 # Password validation

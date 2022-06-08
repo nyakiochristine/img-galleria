@@ -9,5 +9,5 @@
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
-    "python.pythonPath": "/home/moringa/.local/share/virtualenvs/galllery-b_RWnsoX/bin/python"
+    "python.pythonPath": "/bin/python3"
 }
