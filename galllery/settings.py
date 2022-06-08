@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$ymy-_y2h@2^1nw^j32523iu4r(02lkc%ozp+1dz^qu0l%$ykb'
 
-cloudinary.config( 
+cloudinary( 
     cloud_name = "dg5gebequ", 
     api_key = "388514951533463", 
     api_secret = "PQ-s6behlA021Cf7hpYZpjcyFxQ" 
